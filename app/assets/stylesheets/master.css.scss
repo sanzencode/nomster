@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,900,700);
+
+
+
 .booyah-box {
 	-moz-box-shadow:1px 1px 2px 0 #d0d0d0;
 	-webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -22,4 +26,11 @@ body {
 	background: url('/assets/tweed.png');
 	border-radius: 0;
     box-shadow: 1px 3px 5px #c2c2c2;
+}
+.navbar-inverse .navbar-brand {
+	color: #73B0FF;
+	font-family: 'Cinzel Decorative',  sans-serif;
+	font-weight: 900;
+	letter-spacing: -0.3px;
+	font-size: 26px;
 }
