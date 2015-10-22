@@ -14,3 +14,12 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
 }
+body {
+	background: url('/assets/confectionary.png');
+	font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+.navbar.navbar-inverse {
+	background: url('/assets/tweed.png');
+	border-radius: 0;
+    box-shadow: 1px 3px 5px #c2c2c2;
+}
