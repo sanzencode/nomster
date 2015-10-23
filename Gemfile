@@ -29,9 +29,9 @@ gem 'jbuilder', '~> 1.2'
 
 gem "bootstrap-sass", '~> 3.3.5'
 
-#gem 'kaminari'
+gem 'kaminari'
 
-gem 'will_paginate', '~> 3.0.6'
+#gem 'will_paginate', '~> 3.0.6'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
