@@ -3,12 +3,14 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
 	<h1><%= place.name %></h1><br />
 	<i><%= place.address %></i><br />
-	<p><%= place.description %></p><br /> 
+	<p><%= place.description %></p><br />
+	
+
 </div>
 
 <hr />
 <% end %>
 <div class="clr"></div>
-<div class="col-xs-10 col-xs-offset-1">
-	<% paginate@places %>
+<div class="pages col-xs-10 col-xs-offset-1">
+	<%= paginate @places, :window => 2 %>
 </div>
