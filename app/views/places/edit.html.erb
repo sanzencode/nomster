@@ -1,0 +1,10 @@
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+	<h1>Edit your place here</h1>
+
+	<%= simple_form_for @place do |f| %>
+	<%= f.input :name %>
+	<%= f.input :address %></br>
+	<%= f.input :description %></br>
+	<%= f.submit 'Update', :class => 'btn btn-primary' %>
+	<% end %>
+</div>
