@@ -1,11 +1,14 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
 
+
 <h1><%= @place.name %></h1>
 <i><%= @place.address %></i>
 <br><br/>
 <p><%= @place.description %></p>
   
-<% if @place.latitude.present? && @place.longitude.present? %>    
+<% if @place.latitude.present? && @place.longitude.present? %> 
+   
+
 <script>
 
 function initMap() {
@@ -38,3 +41,9 @@ function initMap() {
 	 <% end %>
 </div>
 </div>
+<div class="clear"> </div>
+<%= simple_form_for @comment, :url => '#' do |f| %>
+  <%= f.input :message %>
+  <%= f.input :rating %>
+  <%= f.submit "Add a Comment", :class =>'btn btn-primary' %>
+  <% end %>
