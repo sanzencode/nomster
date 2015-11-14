@@ -34,6 +34,8 @@ gem 'sprockets', '2.11.0'
 gem 'geocoder'
 gem 'figaro', '>= 1.0.0'
 
+gem	'carrierwave'
+
 gem 'kaminari'
 
 gem 'simple_form'
