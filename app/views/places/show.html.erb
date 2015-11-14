@@ -34,7 +34,6 @@ function initMap() {
 <% end %>
 </br>
 
-
 <div class="pull-right">
 	<% if current_user && current_user == @place.user %>
 	<%= link_to 'Edit', edit_place_path(@place), :class =>  'btn btn-primary' %>
@@ -43,25 +42,39 @@ function initMap() {
 </div>
 </div>
 
-<div class="booyah-box col-xs-10 col-xs-offset-1">
-  
-  <%= @photo%>
- 
- 
-
-  <%= simple_form_for @photo, :url => place_photos_path(@place) do |f| %>
-  <%= f.input :picture %>
-
-</div>
- 
-<% end %>
-
 <div class="clear"> </div>
 
+<!-- _PhotosModal -->
+  <div class="modal fade" id="Photo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
+        </div>
+        <%= simple_form_for @photo, :url => place_photos_path(@place) do |f| %>
+      <div class="modal-body">
+          <%= f.input :picture %>
+          <%= f.input :caption %>
+          </div>
+          <div class="modal-footer">  
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= f.submit "Add a photo", :class => 'btn btn-warning' %>
+          </div>  
+        <% end %> 
+    </div>
+    </div>
+  </div>
 
+  <div class="booyah-box col-xs-6 col-xs-offset-1">
+    <!--Buttons triggers modals -->
+    <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#Photo">
+      Add a photo
+    </button> 
+  </div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- CommentsModal -->
+<div class="modal fade" id="Comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -71,11 +84,9 @@ function initMap() {
       <div class="modal-body">
         
         <%= simple_form_for @comment, :url => place_comments_path(@place) do |f| %>
-  <%= f.input :message %>
-  <%= f.input :rating, :as => :select, :collection => Comment::RATINGS %>
-  
-  
-        
+        <%= f.input :message %>
+        <%= f.input :rating, :as => :select, :collection => Comment::RATINGS %>
+    
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -109,5 +120,12 @@ function initMap() {
       <small><%= comment.user.email %></small>
     </blockquote>
   </div>  
+  <% end %>
+
+  <% @place.photos.each do |photo| %>
+    <div class="col-xs-12 col-sm-6">
+        <%= image_tag photo.picture, :class => 'img-responsive' %>
+        </div>  
+          <%= photo.caption %>
   <% end %>
   
