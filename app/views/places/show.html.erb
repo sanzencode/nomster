@@ -45,12 +45,12 @@ function initMap() {
 <div class="clear"> </div>
 
 <!-- _PhotosModal -->
-  <div class="modal fade" id="Photo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="Photo" tabindex="-1" role="dialog" aria-labelledby="Photo" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
+          <h4 class="modal-title" id="Photo">Add a photo</h4>
         </div>
         <%= simple_form_for @photo, :url => place_photos_path(@place) do |f| %>
       <div class="modal-body">
@@ -63,58 +63,55 @@ function initMap() {
           </div>  
         <% end %> 
     </div>
-    </div>
   </div>
-
-  <div class="booyah-box col-xs-6 col-xs-offset-1">
-    <!--Buttons triggers modals -->
-    <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#Photo">
+</div>
+</br>
+  <div class="col-xs-6 col-xs-offset-1">
+    <!--Button triggers modals -->
+    <button class="btn btn-primary btn-md pull-left" data-toggle="modal" data-target="#Photo">
       Add a photo
     </button> 
   </div>
 
 <!-- CommentsModal -->
-<div class="modal fade" id="Comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="Comment" tabindex="-1" role="dialog" aria-labelledby="Comment" aria-hidden="true">
+  <div class="modal-dialog" >
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add a Comment</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="Comment">Add a Comment</h4>
       </div>
-      <div class="modal-body">
-        
+            
         <%= simple_form_for @comment, :url => place_comments_path(@place) do |f| %>
+        <div class="modal-body"> 
         <%= f.input :message %>
         <%= f.input :rating, :as => :select, :collection => Comment::RATINGS %>
-    
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-
-        <%= f.submit "Add a Comment", :class =>'btn btn-primary' %>
+        <%= f.submit "Add a Comment", :class => 'btn btn-warning' %>
       </div>
       <% end %>
     </div>
   </div>
 </div>
-<div class="col-xs-10 col-xs-offset-1">
-  <h1 class="pull-left">Comments</h1>
-  <div class="clear"></div>
-  
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+</br>
+  <div class="col-xs-6 col-xs-offset-1">
+   <!-- Button trigger modal -->
+<div class="col-xs-12 col-xs-6"><h2>Comments</h2>
+  <button type="button" class="btn btn-primary btn-md pull-left" data-toggle="modal" data-target="#myModal">
   Add a comment
 </button>
 </div>
 
-<div class="clear"></div>
+  </div>
+  
 
 <% @place.comments.each do |comment| %>
   <div class="col-xs-12 col-xs-6">
     <blockquote>
        <% if comment.humanized_rating.present? %> 
-       <b><%= comment.humanized_rating %></b>- 
+       <b><%= comment.humanized_rating %></b> ~
        <% end %>
        <%= comment.message %>
       <small><%= comment.user.email %></small>
@@ -125,7 +122,7 @@ function initMap() {
   <% @place.photos.each do |photo| %>
     <div class="col-xs-12 col-sm-6">
         <%= image_tag photo.picture, :class => 'img-responsive' %>
-        </div>  
-          <%= photo.caption %>
+        <%= photo.caption %>
+        </div> 
   <% end %>
   
