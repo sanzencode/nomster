@@ -1,8 +1,8 @@
 Nomster::Application.configure do
-  config.action_mailer.default_url_options = { :host => 'nomster-sanzencode.herokuapp.com/
+  config.action_mailer.default_url_options = { :host => 'nomster-sandra.herokuapp.com/
 '}
   # Settings specified here will take precedence over those in config/application.rb.
- ActionMailer::Base.smtp_settings = {
+  ActionMailer::Base.smtp_settings = {
     :port           => ENV['MAILGUN_SMTP_PORT'],
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
@@ -10,6 +10,7 @@ Nomster::Application.configure do
     :domain         => 'yourapp.heroku.com',
     :authentication => :plain,
   }
+  
   ActionMailer::Base.delivery_method = :smtp
   # Code is not reloaded between requests.
   config.cache_classes = true
