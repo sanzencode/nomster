@@ -32,15 +32,17 @@ gem "bootstrap-sass", '~> 3.3.5.1'
 gem 'sprockets', '2.11.0'
 
 gem 'geocoder'
+
 gem 'figaro', '>= 1.0.0'
 
 gem	'carrierwave'
 
-gem 'fog', '~> 1.3.1'
+gem "fog", "~> 1.3.1"
+ 
 
 gem 'kaminari'
 
-gem 'htmlbeautifier'
+#gem 'htmlbeautifier'
 
 gem 'simple_form'
 
