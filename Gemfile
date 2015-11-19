@@ -42,7 +42,7 @@ gem "fog", "~> 1.3.1"
 
 gem 'kaminari'
 
-gem 'htmlbeautifier'
+#gem 'htmlbeautifier'
 
 gem 'simple_form'
 
