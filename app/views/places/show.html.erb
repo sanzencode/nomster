@@ -44,7 +44,7 @@ function initMap() {
 
 <div class="clear"> </div>
 
-<!-- _PhotosModal -->
+<!-- PhotosModal -->
   <div class="modal fade" id="Photo" tabindex="-1" role="dialog" aria-labelledby="Photo" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -65,13 +65,22 @@ function initMap() {
     </div>
   </div>
 </div>
-</br>
-  <div class="col-xs-6 col-xs-offset-1">
-    <!--Button triggers modals -->
-    <button class="btn btn-primary btn-md pull-left" data-toggle="modal" data-target="#Photo">
+
+
+  <div class="booyah-box col-xs-10 col-xs-offset-1">
+      <% @place.photos.each do |photo| %>
+    <div class="col-xs-12 col-sm-6">
+        <%= image_tag photo.picture, :class => 'img-responsive' %>
+        <%= photo.caption %>
+        </div> 
+  <% end %>
+
+<!--Button triggers modals -->
+    <button class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#Photo">
       Add a photo
     </button> 
   </div>
+
 
 <!-- CommentsModal -->
 <div class="modal fade" id="Comment" tabindex="-1" role="dialog" aria-labelledby="Comment" aria-hidden="true">
@@ -103,10 +112,7 @@ function initMap() {
   Add a comment
 </button>
 </div>
-
-  </div>
-  
-
+</div>
 <% @place.comments.each do |comment| %>
   <div class="col-xs-12 col-xs-6">
     <blockquote>
@@ -119,10 +125,5 @@ function initMap() {
   </div>  
   <% end %>
 
-  <% @place.photos.each do |photo| %>
-    <div class="col-xs-12 col-sm-6">
-        <%= image_tag photo.picture, :class => 'img-responsive' %>
-        <%= photo.caption %>
-        </div> 
-  <% end %>
+
   
