@@ -17,6 +17,7 @@ FactoryGirl.define do
 
   factory :comment do
     message "most wonderful place on earth"
+    rating '3_stars'
     association :user
     association :place
   end

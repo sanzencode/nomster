@@ -5,10 +5,19 @@ class CommentsControllerTest < ActionController::TestCase
   #   assert true
   # end
 
-  test "comments added button works"
-  #user = FactoryGirl.create(:user)
-   	#sign_in user
-  #trigger controller create action
-  # verify comment stored and user redirected to proper local
+  test "comments_added" do
+  	user = FactoryGirl.create(:user)
+   		sign_in user
+  	place = FactoryGirl.create(:place)
+		assert_difference 'Comment.count' do  	
+		post :create, :place_id => place.id, :comment => {
+        :rating  => '4_star',
+        :message => 'This place rocks'
+        }
+		end
+	
+	assert_redirected_to place_path(place)
+    comment = Comment.last
+    assert_equal user, comment.user
 	end
 end

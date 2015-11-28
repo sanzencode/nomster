@@ -5,11 +5,11 @@ class UsersControllerTest < ActionController::TestCase
   #   assert true
   # end
 
-  test "user id brings up dashboard page"
-  #user = FactoryGirl.create(:user)
-   	#sign_in user
+  test "user id brings up dashboard page" do
+  user = FactoryGirl.create(:user)
+   	sign_in user
   	
-  	#get :show, :user => user.id
-  	#assert_response :success
+  	get :show, :id => user.id
+  	assert_response :success
   end
 end
