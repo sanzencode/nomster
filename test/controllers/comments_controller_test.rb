@@ -6,8 +6,8 @@ class CommentsControllerTest < ActionController::TestCase
   # end
 
   test "comments added button works"
-  #my code for auth user sign in
-  #place was created with facorygirl
+  #user = FactoryGirl.create(:user)
+   	#sign_in user
   #trigger controller create action
   # verify comment stored and user redirected to proper local
 	end

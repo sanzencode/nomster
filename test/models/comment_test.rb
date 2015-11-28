@@ -13,6 +13,8 @@ class CommentTest < ActiveSupport::TestCase
    	#comment = FactoryGirl.create(:comment)
    	#expected = 'three stars'
    	#actual = comment.humanized_rating
+   	#assert_equal expected, actual
+
    end
 
 end

@@ -6,8 +6,10 @@ class UsersControllerTest < ActionController::TestCase
   # end
 
   test "user id brings up dashboard page"
-  	#place my signed in user her and redirect to dashboard code
-  	#trigger with show action
-  	#assert a response of success
+  #user = FactoryGirl.create(:user)
+   	#sign_in user
+  	
+  	#get :show, :user => user.id
+  	#assert_response :success
   end
 end
